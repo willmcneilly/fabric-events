@@ -5,8 +5,10 @@ $ ->
 	@currentlySelected = null
 
 	mouseDownFun = (e) => 
+		console.log e.e.layerX
+		console.log e
 		@isMouseDown = true
-		@selectedObj = findObj(e.e.x, e.e.y)
+		@selectedObj = findObj(e.e.layerX, e.e.layerY)
 		if @currentlySelected
 			@currentlySelected.obj.set('active', true)
 
@@ -24,8 +26,8 @@ $ ->
 			console.log left
 			top = @currentlySelected.obj.get('top')
 			console.log top
-			@currentlySelected.obj.set('left', e.e.x - ( 300 )) 
-			@currentlySelected.obj.set('top', e.e.y - ( 300  ))
+			@currentlySelected.obj.set('left', e.e.layerX - ( ( (@currentlySelected.masterGroupWidth / 2) + 100 )  + @currentlySelected.selectedAreaX) )
+			@currentlySelected.obj.set('top', e.e.layerY - ( ( (@currentlySelected.masterGroupHeight / 2) + 100 )  + @currentlySelected.selectedAreaY) )
 
 			@canvas.renderAll()
 			console.log @currentlySelected
@@ -67,7 +69,7 @@ $ ->
 			if isSelected(mouseX, mouseY, objPosX, objPosY, objWidth, objHeight)
 				console.log "newPositionY: #{newPositionY}"
 				#console.log "you chose: #{obj}"
-				@currentlySelected = { obj: obj, mouseX: mouseX, mouseY: mouseY, selectedAreaX : mouseX - objPosX, selectedAreaY : mouseY - objPosY }
+				@currentlySelected = { obj: obj, mouseX: mouseX, mouseY: mouseY, selectedAreaX : (mouseX - objPosX) - (objHeight / 2), selectedAreaY : (mouseY - objPosY) - (objHeight / 2), masterGroupX: masterGroupX, masterGroupY: masterGroupY, masterGroupWidth: masterGroupWidth, masterGroupHeight: masterGroupHeight  }
 
 
 
@@ -100,8 +102,8 @@ $ ->
 	newPath.set('fill', 'red')
 	newPath.scale(0.30)
 
-	@masterGroup.set('width', 600)
-	@masterGroup.set('height', 600)
+	@masterGroup.set('width', 400)
+	@masterGroup.set('height', 400)
 	@masterGroup.set('top', 300)
 	@masterGroup.set('left', 300)
 	@masterGroup.set('selectable', false)
@@ -111,8 +113,8 @@ $ ->
 	rect.set('fill', 'red')
 	rect.set('width', 100)
 	rect.set('height', 100)
-	rect.set('left', 0)
-	rect.set('top', 0)
+	rect.set('left', 100)
+	rect.set('top', 100)
 
 	#@masterGroup.add(newPath)
 	@masterGroup.add(rect)
