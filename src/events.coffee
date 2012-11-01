@@ -62,13 +62,13 @@ $ ->
 
 		masterGroupPxPosX = getPixelPosOfObject(@masterGroup, 'x')
 		masterGroupPxPosY = getPixelPosOfObject(@masterGroup, 'y')
+
+		selected = []
 		
 		for index, obj of @masterGroup.objects
 			
 			objWidth = (obj.get('width') * obj.get('scaleX')) * @masterGroup.get('scaleX')
-			console.log objWidth
 			objHeight =  (obj.get('height') * obj.get('scaleY')) * @masterGroup.get('scaleY')
-			console.log objHeight
 			
 			pixPosInGroupX =  getPixelPosOfObjectWithinGroup(obj, @masterGroup, 'x')
 			pixPosInGroupY =  getPixelPosOfObjectWithinGroup(obj, @masterGroup, 'y')
@@ -77,9 +77,8 @@ $ ->
 			pixPosFromCanvasY = pixPosInGroupY + masterGroupPxPosY
 
 			if isSelected(mouseX, mouseY, pixPosFromCanvasX, pixPosFromCanvasY, objWidth, objHeight)
-				console.log 'found:'
-				console.log obj
-				@currentlySelected = { 
+
+				selectedObj = { 
 					obj: obj,
 					masterGroup: @masterGroup
 					objWidth: objWidth,
@@ -91,6 +90,13 @@ $ ->
 					masterGroupPxPosX : masterGroupPxPosX 
 					masterGroupPxPosY : masterGroupPxPosY
 				}
+
+				selected.unshift(selectedObj)
+		
+		@currentlySelected = selected.pop(-1)
+
+
+
 
 	isSelected = (mouseX, mouseY, pixPosFromCanvasX, pixPosFromCanvasY, objWidth, objHeight) ->
 		if mouseX >= pixPosFromCanvasX and mouseX <= pixPosFromCanvasX + objWidth
@@ -315,7 +321,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 
 	myProperties = {
 		'fontSize': 100,
-		'fill' : "red",
+		'fill' : "black",
 		'letterSpacing' : 0,
 		'stroke' : 'black',
 		'strokeWidth' : 0,
@@ -349,11 +355,11 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 
 	      
 	rect.set 'fill', 'red' 
-	rect.set 'width', 100
-	rect.set 'height', 100 
+	rect.set 'width', 400
+	rect.set 'height', 400 
 	rect.set 'left', 0
 	rect.set 'top', 0
-	rect2.scale 1.2
+	rect.scale 1.2
 
 	rect2.set 'fill', 'black'
 	rect2.set 'width', 100
@@ -387,7 +393,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 	rect5.set 'left', 200
 	rect5.set 'top', 200	
 
-	@masterGroup.add(rect).add(rect2).add(rect3).add(rect4).add(test)
+	@masterGroup.add(rect2).add(rect3).add(rect4).add(test).add(rect)
 	@canvas.add(@masterGroup)
 	@masterGroup.center()
 
