@@ -15,7 +15,6 @@ $ ->
 
 	getPixelPosOfObjectWithinGroup = (object, parentGroup, axis) ->
 		if axis is 'x'
-			#console.log object
 			parentScaleX = parentGroup.get('scaleX')
 			childScaleX = object.get('scaleX')
 			parentPxWidth = (parentGroup.get('width') * parentScaleX) / 2
@@ -23,10 +22,6 @@ $ ->
 			childPxLeft = object.get('left') * parentScaleX
 			(parentPxWidth - childPxWidth) + childPxLeft
 
-			#(object.get('left') * objScaleX) + ((parentGroup.get('width') / 2)  - ((object.get('width') * objScaleX) / 2))
-			#x = object.get('left') + ((parentGroup.get('width') / 2) - (object.get('width') / 2))
-			#(object.get('left') * groupScaleX * objScaleX) + (((parentGroup.get('width') * groupScaleX) / 2) - ((object.get('width') * groupScaleX * objScaleX ) / 2))
-			#x = x * groupScaleX
 		else if axis is 'y'
 			parentScaleY = parentGroup.get('scaleY')
 			childScaleY = object.get('scaleY')
@@ -35,10 +30,6 @@ $ ->
 			childPxTop = object.get('top') * parentScaleY
 			(parentPxHeight - childPxHeight) + childPxTop
 
-			#(object.get('top') * objScaleY) + (((parentGroup.get('height') * groupScaleY ) / 2) - ((object.get('height') * objScaleY) / 2))
-			#(object.get('top') * groupScaleY * objScaleY) + (((parentGroup.get('height') * groupScaleY) / 2) - ((object.get('height') * groupScaleY * objScaleY) / 2) )
-			#y = object.get('top') + ((parentGroup.get('height') / 2) - (object.get('height') / 2))
-			#y = y * groupScaleY
 		else
 			console.log 'No axis defined'
 
@@ -353,7 +344,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 	@masterGroup.set('top',400)
 	@masterGroup.set('left',400)
 	@masterGroup.set('selectable', false)
-	@masterGroup.scale(0.9)
+	@masterGroup.scale(0.6)
 
 
 	      
@@ -362,6 +353,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 	rect.set 'height', 100 
 	rect.set 'left', 0
 	rect.set 'top', 0
+	rect2.scale 1.2
 
 	rect2.set 'fill', 'black'
 	rect2.set 'width', 100
@@ -375,6 +367,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 	rect3.set 'height', 70 
 	rect3.set 'left', 20
 	rect3.set 'top', 40
+	rect2.scale 0.2
 
 	rect4.set 'fill', 'yellow' 
 	rect4.set 'width', 100
@@ -394,7 +387,7 @@ d="M317 614h-266v410h1014v-264l-487 -492h215v140h288v-408h-1030v268l494 492h-228
 	rect5.set 'left', 200
 	rect5.set 'top', 200	
 
-	@masterGroup.add(rect).add(rect2).add(rect3).add(rect4)
+	@masterGroup.add(rect).add(rect2).add(rect3).add(rect4).add(test)
 	@canvas.add(@masterGroup)
 	@masterGroup.center()
 
