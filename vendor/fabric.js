@@ -9508,7 +9508,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, {
      * @constant
      * @type Number
      */
-    MIN_SCALE_LIMIT:            0.1
+    MIN_SCALE_LIMIT:            -1
 
   });
 
