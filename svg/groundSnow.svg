@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="178px" height="267px" viewBox="0 0 178 267" enable-background="new 0 0 178 267" xml:space="preserve">
+<linearGradient id="Snow_1_" gradientUnits="userSpaceOnUse" x1="89.5889" y1="182.5215" x2="89.5889" y2="227.1621">
+	<stop  offset="0" style="stop-color:#D7E7F7"/>
+	<stop  offset="0.1914" style="stop-color:#DBEAF8"/>
+	<stop  offset="0.3965" style="stop-color:#E8F1FA"/>
+	<stop  offset="0.6073" style="stop-color:#FEFEFF"/>
+	<stop  offset="0.6196" style="stop-color:#FFFFFF"/>
+</linearGradient>
+<path id="Snow" fill-rule="evenodd" clip-rule="evenodd" fill="url(#Snow_1_)" d="M175.212,182.543
+	c1.229-0.259-0.287,1.889-0.054,2.621c-2.604,10.938-6.975,22.649-13.567,31.337c-2.032,2.678-4.903,6.227-7.431,7.431
+	c-5.594,2.662-12.645,1.979-20.676,3.23c-10.769,0-21.537,0-32.306,0c-22.594-0.98-47.537-2.86-70.104-4.847
+	c-3.386-0.297-7.533-0.117-9.691-0.968c-3.092-1.22-8.378-11.128-10.016-14.216c-3.051-5.753-4.157-8.63-6.435-14.325
+	c0-0.538-1.454-3.614-1.454-4.151c19.203-5.519,36.189-1.896,54.61,1.739c18.795,3.708,36.431,9.102,55.628,8.983
+	C136.254,199.242,159.908,191.244,175.212,182.543z"/>
+</svg>
